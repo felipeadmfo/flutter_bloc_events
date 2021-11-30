@@ -6,7 +6,7 @@ import 'package:flutter_bloc_events/abstracao/bloc_event_state.dart';
 typedef AsyncBlocEventStateBuilder<BlocState> = Widget Function(
     BuildContext context, BlocState state);
 
-class BlocEventStateBuilder extends StatelessWidget {
+class BlocEventStateBuilder<BlocEvent, BlocState> extends StatelessWidget {
   // Disponiliza para árvore envolvida e capacidade
   // de emitir evento e obervar a evolução do estado
   final BlocEventStateBase<BlocEvent, BlocState> bloc;

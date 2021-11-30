@@ -46,7 +46,7 @@ abstract class BlocEventStateBase<BlocEvent, BlocState> implements BlocBase {
 
   BlocEventStateBase({required this.initialState}) {
     _eventController.listen((BlocEvent event) {
-      BlocState currentState = _stateController.value ?? initialState;
+      BlocState currentState = _stateController.valueOrNull ?? initialState;
       eventHandler(event, currentState).forEach((BlocState newState) {
         _stateController.sink.add(newState);
       });
