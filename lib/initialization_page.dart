@@ -36,7 +36,9 @@ class _InitializationPageState extends State<InitializationPage> {
         bloc: bloc,
         builder: (BuildContext context, AppInitializationState state) {
           if (state.isInitialized) {
-            return const Text("App Inicializado");
+            WidgetsBinding.instance!.addPostFrameCallback((_) {
+              Navigator.of(context).pushReplacementNamed('/decision');
+            });
           }
           return Text('Inicialização em progresso... ${state.progress}%');
         },
